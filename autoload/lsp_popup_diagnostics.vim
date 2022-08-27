@@ -14,7 +14,11 @@ function! lsp_popup_diagnostics#show() abort
         continue
       endif
       let msg =  [value.message]
-      call popup_create(msg, {'moved': 'any', 'line' : 'cursor+1', 'padding': [0,1,0,1]})
+      call popup_create(msg, {
+            \ 'moved': 'any',
+            \ 'col'  : 'cursor',
+            \ 'line' : 'cursor+1',
+            \ 'padding': [0,1,0,1]})
       
     endfor
   endfor
