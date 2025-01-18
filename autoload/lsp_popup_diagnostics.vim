@@ -18,7 +18,7 @@ function! lsp_popup_diagnostics#show() abort
           continue
         endif
         " show message
-        let msg =  [value.message]
+        let msg = split(value.message, '\%x00')
         call popup_create(msg, {
               \ 'moved': 'any',
               \ 'col'  : 'cursor',
